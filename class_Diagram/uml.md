@@ -107,25 +107,7 @@ classDiagram
     CaseState <|.. UnderInvestigationState
     CaseState <|.. ResolvedState
     CaseContext o-- CaseState : current state
-```
 
-### Likely case-status transitions
-
-The original diagram groups the states without labelled transitions. Based on typical case-lifecycle logic, here's the probable flow — adjust if your implementation differs:
-
-```mermaid
-stateDiagram-v2
-    [*] --> Submitted
-    Submitted --> UnderReview
-    UnderReview --> Assigned
-    Assigned --> UnderInvestigation
-    UnderInvestigation --> Resolved
-    Resolved --> [*]
-```
-
-`CaseContext` holds a reference to the current `CaseState` and delegates behavior to it, switching state objects as the case progresses — the **State** pattern.
-
----
 
 ## 5. Observer pattern — case notifications
 
