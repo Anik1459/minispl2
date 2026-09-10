@@ -2,9 +2,32 @@
 
 A full set of UML diagrams covering the domain model, design patterns, and layered architecture of the application.
 
+
+## 1. Application navigation flow
+
+```mermaid
+flowchart TD
+    A["HelloApplication\n&lt;&lt;JavaFX&gt;&gt;"] --> B[RoleSelection]
+    B --> C[Login]
+    B --> D[UserDashboard]
+    B --> E[AdminDashboard]
+
+    D --> F["Crime\n&lt;&lt;abstract&gt;&gt;"]
+    F --> G[Theft]
+    F --> H[Fraud]
+    F --> I[Robbery]
+
+    C --> J[UserService]
+    J --> K[UserDAO]
+    K --> L[DatabaseConnection]
+    L --> M[(SQLite)]
+```
+
 ---
 
-## 1. Crime class hierarchy + Factory pattern
+---
+
+## 2. Crime class hierarchy + Factory pattern
 
 ```mermaid
 classDiagram
@@ -30,29 +53,6 @@ classDiagram
 `Theft`, `Robbery`, and `Fraud` all extend the abstract `Crime` class. `CrimeFactory` encapsulates the logic for instantiating the correct concrete subclass (the **Factory Method** pattern).
 
 ---
-
-## 2. Application navigation flow
-
-```mermaid
-flowchart TD
-    A["HelloApplication\n&lt;&lt;JavaFX&gt;&gt;"] --> B[RoleSelection]
-    B --> C[Login]
-    B --> D[UserDashboard]
-    B --> E[AdminDashboard]
-
-    D --> F["Crime\n&lt;&lt;abstract&gt;&gt;"]
-    F --> G[Theft]
-    F --> H[Fraud]
-    F --> I[Robbery]
-
-    C --> J[UserService]
-    J --> K[UserDAO]
-    K --> L[DatabaseConnection]
-    L --> M[(SQLite)]
-```
-
----
-
 ## 3. Strategy pattern — investigator assignment
 
 ```mermaid
@@ -258,4 +258,3 @@ flowchart TD
 
 - Diagram 4 adds an inferred state-transition sequence since the original ASCII only grouped the states visually without arrows/labels between them — verify against your actual state-transition logic and adjust if needed.
 - `CaseContext` appears twice in the source diagrams (once for State, once for Observer/Subject); it's shown as a single unified class in diagrams 4 and 5 since it plays both roles.
-- All diagrams render natively on GitHub, GitLab, Obsidian, and any Mermaid-aware Markdown viewer. If your viewer doesn't support Mermaid, paste any code block into [mermaid.live](https://mermaid.live).
