@@ -1,4 +1,4 @@
-# Crime Reporting System — ER Diagram
+ ER Diagram
 
 ## Entity-Relationship Diagram
 
@@ -73,5 +73,3 @@ erDiagram
 - `CRIME_REPORTS.status` holds the **current** status; `CASE_STATUS_HISTORY` is an audit log of every status transition (old → new, with timestamp).
 - `EVIDENCE.file_path` implies file storage (e.g. photos, documents) is referenced, not stored directly in the database.
 - All foreign keys (`FK`) reference the primary key (`PK`) of their parent entity.
-
-> **Tip:** This diagram renders automatically on GitHub, GitLab, Obsidian, and any Markdown viewer with Mermaid support. If your viewer doesn't support Mermaid, paste the code block into [mermaid.live](https://mermaid.live) to view it.
