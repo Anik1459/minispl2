@@ -80,7 +80,6 @@ classDiagram
 `InvestigationService` holds a reference to an `InvestigatorAssignmentStrategy` and delegates assignment logic to whichever concrete strategy (`LocationBasedAssignment` or `SpecializationBasedAssignment`) is plugged in at runtime — the **Strategy** pattern.
 
 ---
-
 ## 4. State pattern — case lifecycle
 
 ```mermaid
@@ -107,8 +106,7 @@ classDiagram
     CaseState <|.. UnderInvestigationState
     CaseState <|.. ResolvedState
     CaseContext o-- CaseState : current state
-
-
+```
 ## 5. Observer pattern — case notifications
 
 ```mermaid
